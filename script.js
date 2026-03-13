@@ -15,9 +15,18 @@ console.log("js Loaded");
 const DebugUI = document.getElementById("debug-ui");
 const DebugNav = document.getElementById("debug-nav");
 const DebugSequence = ["D", "E", "B", "U", "G", "Enter"];
+
 //Debug Mouse
 const DebugX = document.getElementById("debug-mouse-x");
 const DebugY = document.getElementById("debug-mouse-y");
+
+//Debug Buttons
+const DebugData = document.getElementById("website-data-btn");
+const DebugDebug = document.getElementById("debug-button");
+const DebugLoading = document.getElementById("debug-loading");
+const DebugLog = document.getElementById("debug-log");
+
+const DebugButtons = document.querySelectorAll(".debug-nav-button");
 
 //Nav
 const Nav = document.querySelector(".nav");
@@ -69,15 +78,17 @@ Cart.addEventListener("click", function() {
 accountButton.addEventListener("click", function() {
     Dropdown.style.display = "flex";
     HtmlElement.style.overflowY = "hidden";
-})
+});
 
 //Key Press
 document.addEventListener("keydown", handleKey);
 
 //New Changes
-newChangesButton.addEventListener("click", function() {
-    newChanges.scrollIntoView({behavior: "smooth", block: "start" });
-})
+if (newChangesButton) {
+    newChangesButton.addEventListener("click", function() {
+        newChanges.scrollIntoView({behavior: "smooth", block: "start" });
+    });
+}
 
 /*____________________________________________________________________________________________*/
 
@@ -146,8 +157,8 @@ function handleKey(event) {
     och jämför om bokstäverna matchar. */
 
     keyInputSequence.push(event.key); //Push input key into the sequence
-    console.log
-    // IF Keystrokes matches array of keys (Open debug window)
+
+    // If Keystrokes matches array of keys (Open debug window)
     if (keyInputSequence.length > DebugSequence.length) {
         keyInputSequence.shift();
 
@@ -187,8 +198,10 @@ function handleScrollToggleOn() {
 
 
 function handleMouseMove(event) {
-    DebugX.innerHTML = "X:" + event.clientX;
-    DebugY.innerHTML = "Y:" + event.clientY;
+    if (DebugUI.style.display !== "none") {
+        DebugX.textContent = "X:" + event.clientX;
+        DebugY.textContent = "Y:" + event.clientY;
+    }
 }
 
 
