@@ -1020,3 +1020,25 @@ footer {
     font-weight: 200;
     letter-spacing: 2px;
 }
+
+.debug-nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 0px;
+    border: 1px solid darkgray;
+    outline: none;
+    color: white;
+    background-color: transparent;
+}
+
+.clear-data {
+    border-top-left-radius: 32px;
+    border-bottom-left-radius: 32px;
+}
+
+.debug-log {
+    border-top-right-radius: 32px;
+    border-bottom-right-radius: 32px;
+}
